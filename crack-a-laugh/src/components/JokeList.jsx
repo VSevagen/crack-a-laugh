@@ -8,19 +8,18 @@ class JokeList extends React.Component {
         numJokesToGet: 10
     };
 
-
-    constructor(props) {
-        super(props);
-        this.state = {jokes: []}
-    }
+    //TODO
+    // set the state
 
     async componentDidMount() {
         let jokes = [];
         while(jokes.lenght < this.props.numJokesToGet) {
+            //TODO
             // fetch the jokes from the follwing url "https://icanhazdadjoke.com/"
             // Push them to jokes[]
         }
 
+        //TODO
         // Update jokes in states with new jokes
     }
 
@@ -28,6 +27,7 @@ class JokeList extends React.Component {
         return(
             <div className="JokeList">
             <h1>Mad Jokes !</h1>
+            {/* TODO */}
             {/* Here you'll have to iterate through the jokes array and display each joke. */}
             </div>
         );
