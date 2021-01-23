@@ -8,5 +8,9 @@ First stage
  - Try to fetch the jokes from he following api "https://icanhazdadjoke.com/"
  - The starter code is already provided in JokeList.jsx. Go through it
  - You'll see comments named TODO. Those are the parts you'll have to complete.
+ - Once you think you have accomplished the above, refer to FirstStage.png for clarification.
 
- End product - First stage - check FistStage.png
+ NOTE: On every rendering, new jokes should be displayed so be careful or what you chose,
+ props or state :)
+
+ 
