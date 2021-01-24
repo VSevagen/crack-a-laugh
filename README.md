@@ -19,7 +19,7 @@ calls will need to go - and there all functions that call <strong>setState()</st
 
 <h1>Overview</h1>
 <p>The game should be able to satisfy the following functions</p>
-<p>The overall board should look like the follwoing image. Don't worry about the styles, they will be provided. You'll need to guess where to add the classNames</p>
+<p>The overall board should look like the follwoing image. Don't worry about the styles, it's not required for you to replicate what I did but the same functionality should be there. You'll need to guess where to add the classNames</p>
 <img src="./public/Overview.png"></img>
 
 <p>Please find the "LightsOutTryout.mp4" video in the public directory to refer the basic functionality of the app. I gave a default number of moves of 20 ( this can be changed if you want) and everytime the user tries/clicks a cell, the number of tries decreases my 1. When it reaches 0, the game is over :)</p>
