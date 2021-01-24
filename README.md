@@ -24,8 +24,7 @@ calls will need to go - and there all functions that call <strong>setState()</st
 
 <p>The following video is about the gameplay. I gave a default number of moves of 20 ( this can be changed if you want) and everytime the user tries/clicks a cell, the number of tries decreases my 1. When it reaches 0, the game is over :)</p>
 
-<video controls width="250">
-    <source src="./public/LightsOutTryout.mkv"
-            type="video/mp4">
-    Sorry, your browser doesn't support embedded videos.
+<video width="320" height="240" controls>
+  <source src="./public/LightsOutTryout.mp4" type="video/mp4">
+  Your browser does not support the video tag.
 </video>
