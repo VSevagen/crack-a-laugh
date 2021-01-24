@@ -16,3 +16,8 @@
 calls will need to go - and there all functions that call <strong>setState()</strong></p>
 <h3>Cell</h3>
 <p>A simple component. This will simple render a <strong>div</strong> where the CSS classes will indicate whether this cell is lit or unlit. This is what the user clicks on -- but it will need to call a function its receives from <strong>Board</strong> since that will need to update the state.</p>
+
+<h1>Overview</h1>
+<p>The game should be able to satisfy the following functions</p>
+<p>The overall board should look like the follwoing image. Don't worry about the styles, they will be provided. You'll need to guess where to add the classNames</p>
+<img src="./public/Overview.png"></img>
