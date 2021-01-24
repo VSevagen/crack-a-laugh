@@ -22,9 +22,8 @@ calls will need to go - and there all functions that call <strong>setState()</st
 <p>The overall board should look like the follwoing image. Don't worry about the styles, they will be provided. You'll need to guess where to add the classNames</p>
 <img src="./public/Overview.png"></img>
 
-<p>The following video is about the gameplay. I gave a default number of moves of 20 ( this can be changed if you want) and everytime the user tries/clicks a cell, the number of tries decreases my 1. When it reaches 0, the game is over :)</p>
+<p>Please find the "LightsOutTryout.mp4" video in the public directory to refer the basic functionality of the app. I gave a default number of moves of 20 ( this can be changed if you want) and everytime the user tries/clicks a cell, the number of tries decreases my 1. When it reaches 0, the game is over :)</p>
 
-<video width="320" height="240" controls>
-  <source src="./public/LightsOutTryout.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<p>When the user wins, the board component should be replaced with the following image. The choice of making it a component or not is yours.</p>
+
+<img src="./public/youWon.png"></img>
