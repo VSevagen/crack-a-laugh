@@ -15,25 +15,17 @@ import "./Cell.css"
  *
  **/
 
-class Cell extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
+function Cell(props) {
 
-  handleClick(evt) {
+  const handleClick = (evt) => {
     // call up to the board to flip cells around this cell
-    this.props.flipCellsAroundMe();
-  }
+    props.flipCellsAroundMe();
+  };
 
-  render() {
-    let classes = "Cell" + (this.props.isLit ? " Cell-lit" : "");
+  let classes = "Cell" + (props.isLit ? " Cell-lit" : "");
 
-    return (
-        <td className={classes} onClick={this.handleClick} />
-    )
+  return <td className={classes} onClick={handleClick} />;
   }
-}
 
 
 export default Cell

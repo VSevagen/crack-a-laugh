@@ -1,7 +1,6 @@
-import React, {Component} from "react";
+import React, {useState} from "react";
 import Cell from "./Cell";
 import './Board.css';
-
 
 /** Game board of Lights out.
  *
@@ -29,17 +28,14 @@ import './Board.css';
  *
  **/
 
-class Board extends Component {
+function Board(props) {
 
-  constructor(props) {
-    super(props);
-
-    // TODO: set initial state
-  }
+  // TODO: set initial state
+  
 
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
 
-  createBoard() {
+  function createBoard() {
     let board = [];
     // TODO: create array-of-arrays of true/false values
     return board
@@ -47,7 +43,7 @@ class Board extends Component {
 
   /** handle changing a cell: update board & determine if winner */
 
-  flipCellsAround(coord) {
+  function flipCellsAround(coord) {
     let {ncols, nrows} = this.props;
     let board = this.state.board;
     let [y, x] = coord.split("-").map(Number);
@@ -66,13 +62,14 @@ class Board extends Component {
     // win when every cell is turned off
     // TODO: determine is the game has been won
 
-    this.setState({board, hasWon});
+    setState(board);
+    setState(hasWon);
   }
 
 
   /** Render game board or winning message. */
 
-  render() {
+  return (
 
     // if the game is won, just show a winning msg & render nothing else
 
@@ -81,7 +78,7 @@ class Board extends Component {
     // make table board
 
     // TODO
-  }
+  );
 }
 
 
