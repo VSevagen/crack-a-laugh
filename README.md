@@ -1,4 +1,11 @@
 <h1>Lights Out</h1>
+
+<h2>Stages</h2>
+<p>This challenge consists of 2 stages</p>
+<ul>
+<li>First Stage - Get the LightsOut Game working - use the lightsOut folder only</li>
+<li>Second Stage - Render a leaderboard in lightsOut but fetch the data from backend in django folder. Use graphql for querying</li>
+</ul>
 <p>THis challenge is about verifying whether you've got a good hang of basic React concepts</p>
 <br/>
 <h2>The Game</h2>
