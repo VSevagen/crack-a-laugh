@@ -3,10 +3,11 @@
 <p>THis challenge is about verifying whether you've got a good hang of basic React concepts as well as Django and GraphQL in overall</p>
 
 <h2>Stages</h2>
-<p>This challenge consists of 2 stages</p>
+<p>This challenge consists of 3 stages</p>
 <ul>
 <li>First Stage - Get the LightsOut Game working - use the lights-out folder only</li>
 <li>Second Stage - Render a leaderboard in lights-out but fetch the data from backend in django folder. Use GraphQL for querying</li>
+<li>Thirs Stage - Instead of queerying, now I want a mutation to happen. Have some very simple form for the user to enter his name. Then use GraphQL to send a POST request to db to add new entry and render the leaderboard with new entry</li>
 </ul>
 
 <br/>
@@ -49,3 +50,12 @@ calls will need to go - and there all functions that call <strong>setState()</st
 <p>In the end, after fetching the data, leaderboard should be displayed when you win or lose. Basically at the end of the game</p>
 
 <img src="./public/SecondStage.png"></img>
+
+<h2>Third and Final Stage</h2>
+<p>Hopefully, you guys would be done with the regular fetching to this point. Now, the goal is to create a new record to the database which, if you remember correctly, is done through <strong>Mutation</strong> in GraphQL. So basically, you'll have a Form component (basic boilerplate provided) which will make a mutation upon submitting/request. Then change should be visible in the leaderboard</p>
+
+<p>The image below gives an idea of what is to be done. Once the game is over, you'll be given the option to enter your name</p>
+<img src="./public/ThirdStagePriorMutation.png"></img>
+
+<p>After submitting your name, the leadboard should have the new entry on re-rendering</p>
+<img src="./public/ThirdStageAfterMutation.png"></img>
