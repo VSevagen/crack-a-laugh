@@ -1,14 +1,16 @@
 <h1>Lights Out</h1>
 
+<p>THis challenge is about verifying whether you've got a good hang of basic React concepts as well as Django and GraphQL in overall</p>
+
 <h2>Stages</h2>
 <p>This challenge consists of 2 stages</p>
 <ul>
-<li>First Stage - Get the LightsOut Game working - use the lightsOut folder only</li>
-<li>Second Stage - Render a leaderboard in lightsOut but fetch the data from backend in django folder. Use graphql for querying</li>
+<li>First Stage - Get the LightsOut Game working - use the lights-out folder only</li>
+<li>Second Stage - Render a leaderboard in lights-out but fetch the data from backend in django folder. Use GraphQL for querying</li>
 </ul>
-<p>THis challenge is about verifying whether you've got a good hang of basic React concepts</p>
+
 <br/>
-<h2>The Game</h2>
+<h2>The Game - First Stage</h2>
 <p>Lights Out is a logic game played on a grid of individual lights, which can either be lit or unlit. The puzzle is won when all the lights are turned off.</p>
 <p>You can click on each individual cell to toggle that light - but its also toggles the light above it, left of it, right and below of it.</p>
 
@@ -34,3 +36,16 @@ calls will need to go - and there all functions that call <strong>setState()</st
 <p>When the user wins, the board component should be replaced with the following image. The choice of making it a component or not is yours.</p>
 
 <img src="./public/youWon.png"></img>
+
+<h2>Django - Second Stage</h2>
+<p>Use the provided django starter code in the django folder to set up your project and GraphQL</p>
+<p>I've left some comments/notes in certain files to help you but in the end, the following functions should be there in your PR</p>
+<ul>
+<li>Data in lights-out/src/Leaderboard.jsx should be fetch from django server aka http://localhost:8000/graphql/</li>
+<li>Model should conists of 3 fields (name, wins, loses) where wins and loses are integers initialized as 0</li>
+<li>localhost:8000/graphql/ should be working and you should be able to test your queries
+</ul>
+
+<p>In the end, after fetching the data, leaderboard should be displayed when you win or lose. Basically at the end of the game</p>
+
+<img src="./public/SecondStage.png"></img>
