@@ -71,11 +71,12 @@ function Board(props) {
 
   return (
 
-    // if the game is won, just show a winning msg & render nothing else
+    // if the game is won, just show a winning msg along with the leaderboard
 
     // TODO
 
     // make table board
+    // render leaderboard when won or lost
 
     // TODO
   );
