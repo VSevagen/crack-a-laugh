@@ -17,5 +17,11 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls)
+    # you can import the graphql path here as i want you
+    # guys to be able to access http://localhost:8000/graphql/
+    # to test your queries
+    # 
+    # Also you might run into some issues if you try to add any other path than admin, 
+    # so keep an eye on that :)
 ]
