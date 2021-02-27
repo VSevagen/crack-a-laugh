@@ -1,3 +1,15 @@
 .Board {
+  display: grid;
   margin: 0 auto;
+  width: fit-content;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #111;
+  box-shadow: 0 0 40px 20px #ff9933, 0 0 10px 10px #50BFE6;
+}
+
+.left {
+  font-size: 1.3rem;
+  margin-top: 102px;
+  text-transform: uppercase;
 }
