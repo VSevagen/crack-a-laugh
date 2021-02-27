@@ -2,6 +2,7 @@ import React from 'react';
 
 function Leaderboard() {
     return(
+        <div>You Lost</div>
         // return a leaderboard using the html table tag
         // data should NOT be hardcoded, should be fetch using graphql from localhost:8000/graphql/
         // The styling is not a priority. You can refer to SecondStage.png but not necessary to be similar
