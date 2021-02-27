@@ -1,4 +1,4 @@
-import React, {setState} from "react";
+import React, { useState } from "react";
 import Leaderboard from "./Leaderboard";
 import Cell from "./Cell";
 import Won from "./Won";
@@ -30,26 +30,19 @@ import './Board.css';
  *
  **/
 
-class Board extends React.Component {
+function Board(props) {
 
   // TODO: set initial state
-  constructor(props) {
-    super(props);
-    this.state = {
-      board: this.createBoard(),  // Creating Initial Board
-      hasWon: false,   
-      triesLeft : 20     // Tries user has left
-    };
-
-    this.flipCellsAround = this.flipCellsAround.bind(this);  // Binding flipCellsAround method so it will have access to 'this'
-  }
+  const [board, setBoard] = useState(createBoard(props));
+  const [triesLeft, setTriesLeft] = useState(20);
+  const [hasWon, setHasWon] = useState(false);
 
   /* isAllCellOff function will return true if all the values of the board array is false, otherwise false */
 
-  isAllCellOff(board){
+  function isAllCellOff(board) {
 
-    for (let row=0; row<board.length; row++) {
-      for (let col=0; col<board[row].length; col++){
+    for (let row = 0; row < board.length; row++) {
+      for (let col = 0; col < board[row].length; col++) {
         if (board[row][col] == true)
           return false;
       }
@@ -60,22 +53,22 @@ class Board extends React.Component {
 
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
 
-  createBoard() {
+  function createBoard() {
     let board = [];
     // TODO: create array-of-arrays of true/false values
     let valid_board = false;
 
     while (!valid_board) {  // Execute while loop until a valid board is created
-                              //  createBoard function cannot return a board with all values as false
-      for (let row=0; row<this.props.nrows; row++) {
-        let cell_row = new Array(this.props.ncols);  // Create an array that has ncols elements
-        for (let column=0; column <this.props.ncols; column++) {
-          cell_row[column] = ( Math.floor(Math.random() * 2) ) ? true : false;  // Randomly assign true or false values 
+      //  createBoard function cannot return a board with all values as false
+      for (let row = 0; row < props.nrows; row++) {
+        let cell_row = new Array(props.ncols);  // Create an array that has ncols elements
+        for (let column = 0; column < props.ncols; column++) {
+          cell_row[column] = (Math.floor(Math.random() * 2)) ? true : false;  // Randomly assign true or false values 
         }
         board[row] = cell_row;  // Insert the cell_row array to the board array
       }
 
-      valid_board = !this.isAllCellOff(board); // checks if the created board is a valid board
+      valid_board = !isAllCellOff(board); // checks if the created board is a valid board
     }
 
     return board;
@@ -83,10 +76,9 @@ class Board extends React.Component {
 
   /** handle changing a cell: update board & determine if winner */
 
-  flipCellsAround(coord) {
+  function flipCellsAround(coord) {
 
-    let {ncols, nrows} = this.props;
-    let board = this.state.board;
+    let { ncols, nrows } = props;
     let [x, y] = coord.split("-").map(Number);
 
 
@@ -98,58 +90,58 @@ class Board extends React.Component {
       }
     }
 
-    flipCell(x,y);
+    flipCell(x, y);
 
-    flipCell(x+1, y); //Flip the right cell of the clicked one
-    flipCell(x-1, y); //Flip the left cell of the clicked one
-    flipCell(x, y+1); //Flip the bottom cell of the clicked one
-    flipCell(x, y-1); //Flip the top cell of the clicked one 
+    flipCell(x + 1, y); //Flip the right cell of the clicked one
+    flipCell(x - 1, y); //Flip the left cell of the clicked one
+    flipCell(x, y + 1); //Flip the bottom cell of the clicked one
+    flipCell(x, y - 1); //Flip the top cell of the clicked one
 
     // TODO: flip this cell and the cells around it
 
     // win when every cell is turned off
     // TODO: determine is the game has been won
-    let hasWon = this.isAllCellOff(this.state.board);
-
-    this.setState({board: this.state.board, hasWon: hasWon, triesLeft: this.state.triesLeft-1});
+    let hasWon = isAllCellOff(board);
+    setBoard(board);
+    setTriesLeft(triesLeft - 1);
+    setHasWon(hasWon);
   }
 
 
   /** Render game board or winning message. */
-  render() {
-    let board = this.state.board;
 
-    let table = new Array(board.length);
-    
-    for (let row=0; row<table.length; row++) {
-      let cell_row = new Array(board[row].length);
 
-      for (let col=0; col<board[row].length; col++) {
-        let coords = row+"-"+col;
-        cell_row.push(<Cell flipCellsAroundMe={this.flipCellsAround} coords={coords} isLit={board[row][col]}/>);
-    
-      }
+  let table = new Array(board.length);
 
-      table[row] = <tr>{cell_row}</tr>;
+  for (let row = 0; row < table.length; row++) {
+    let cell_row = new Array(board[row].length);
+
+    for (let col = 0; col < board[row].length; col++) {
+      let coords = row + "-" + col;
+      cell_row.push(<Cell flipCellsAroundMe={flipCellsAround} coords={coords} isLit={board[row][col]} />);
 
     }
 
-    if (this.state.hasWon)
-      return (<Won/>);
+    table[row] = <tr>{cell_row}</tr>;
 
-    if (this.state.triesLeft<=0)
-      return (<Leaderboard/>)
-
-    return (
-      <React.Fragment>
-        <h1>Lights Out</h1>
-        <table class="Board">
-          {table}
-        </table>
-        <h2>Tries Left : {this.state.triesLeft}</h2>
-      </React.Fragment>
-    );
   }
+
+  if (hasWon)
+    return (<Won />);
+
+  if (triesLeft <= 0)
+    return (<Leaderboard />)
+
+  return (
+    <React.Fragment>
+      <h1>Lights Out</h1>
+      <table class="Board">
+        {table}
+      </table>
+      <h2>Tries Left : {triesLeft}</h2>
+    </React.Fragment>
+  );
+
 }
 
 
