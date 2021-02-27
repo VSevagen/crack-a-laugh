@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Leaderboard from "./Leaderboard";
 import Cell from "./Cell";
-import Won from "./Won";
 import './Board.css';
 
 /** Game board of Lights out.
@@ -127,10 +126,24 @@ function Board(props) {
   }
 
   if (hasWon)
-    return (<Won />);
+    return (
+    <React.Fragment>
+       
+       <h1>You Won</h1>
+        <div><Leaderboard /></div>
+        <h2>Tries Left : {triesLeft}</h2>
+      </React.Fragment>
+    );
 
   if (triesLeft <= 0)
-    return (<Leaderboard />)
+    return (
+      <React.Fragment>
+        <div><h1>You Lost</h1></div>
+        <Leaderboard />
+        <h2>Tries Left : {triesLeft}</h2>
+      </React.Fragment>
+    );
+
 
   return (
     <React.Fragment>

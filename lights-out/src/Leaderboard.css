@@ -1,1 +1,15 @@
 /* Add your styles here or if you're planning for styled components, then DELETE this file*/
+.table_score, .table_score td, .table_score th {
+    border: 5px solid rgb(226, 208, 80);
+    text-align:center;
+    padding:5px 30px;
+  }
+  
+  .table_score {
+    margin: 0 auto;
+  top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    border-collapse: collapse;
+  }
