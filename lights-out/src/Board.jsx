@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Cell from "./Cell";
 import './Board.css';
+import Leaderboard from "./Leaderboard";
 
 /** Game board of Lights out.
  *
@@ -32,7 +33,7 @@ function Board(props) {
 
     const [hasWon, setHasWon] = useState(false);
     const [board, setBoard] = useState(createBoard);
-    const [left, setLeft] = useState(20);
+    const [left, setLeft] = useState(1);
     const [over, setOver] = useState(false);
 
     /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
@@ -73,12 +74,12 @@ function Board(props) {
         board.forEach(u => u.forEach(v => v ? hasWon = false : ''))
 
         setBoard(tempBoard);
-        setHasWon(hasWon);
+        // setHasWon(hasWon);
 
         // decrement chance left
-        setLeft(l => l - 1)
+        setLeft(l => ((l - 1 === 0 ? setOver(true) : ''), l - 1))
 
-        if (hasWon || left === 0)
+        if (hasWon)
             setOver(true);
     }
 
@@ -87,24 +88,21 @@ function Board(props) {
     return (
         // if the game is won, just show a winning msg along with the leaderboard
         <div>
-            <div className={'Board'} style={{'gridTemplateColumns': `repeat(${props.ncols}, 1fr)`}}>
+            {!over ?
+                <div className={'Board'} style={{'gridTemplateColumns': `repeat(${props.ncols}, 1fr)`}}>
                 {board.map((row, y) =>
                     row.map((col, x) => (
                         <Cell key={y * board.length + x} flipCellsAroundMe={() => flipCellsAround({y, x})}
                               isLit={board[y][x]}/>
                     ))
                 )}
-            </div>
+            </div> :
+            <Leaderboard hasWon={hasWon} />
+            }
 
             <div className={'left'}>
                 Tries left: {left}
             </div>
-
-            {
-            /* make table board
-            render leaderboard when won or lost
-
-             TODO */}
         </div>
     );
 }
