@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Cell from "./Cell";
-import './Board.css';
+import "./Board.css";
 
 /** Game board of Lights out.
  *
@@ -12,7 +12,6 @@ import './Board.css';
  *
  * State:
  *
- * - hasWon: boolean, true when board is all off
  * - board: array-of-arrays of true/false
  *
  *    For this board:
@@ -28,59 +27,127 @@ import './Board.css';
  *
  **/
 
-function Board(props) {
+function Board() {  
 
-  // TODO: set initial state
-  
+  // TODO: set initial state -- DONE
 
-  /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
+  let nrows = 4, ncols = 9, chanceLightStartsOn = 0.5;
+  const [total_tries,settries]=useState(20);
+  const [board, setBoard] = useState(createBoard()); 
+
+  // create a board nrows high/ncols wide, each cell randomly lit or unlit  --Done 
+
 
   function createBoard() {
     let board = [];
-    // TODO: create array-of-arrays of true/false values
-    return board
+    // TODO - create array-of-arrays of true/false values --Done
+
+    
+    for (let i = 0; i < nrows; i++) {
+      let row = [];
+      for (let j = 0; j < ncols; j++) {
+        row.push(true ? Math.random() < chanceLightStartsOn : false);
+      }
+      board.push(row);
+    }
+    // board=[[false,false,true,false,false],[false,true,true,true,false],[false,false,true,false,false],[false,false,false,false,false],[false,false,false,false,false]];
+
+    return board;
   }
 
-  /** handle changing a cell: update board & determine if winner */
+  // check the board in state to determine whether the player has won.
+  function hasWon() { 
+    var flag=true; 
+    for (let i = 0; i < nrows; i++) {
+      for (let j = 0; j < ncols; j++) {
+        if (board[i][j]){
+          flag=false;
+          break;
+        }
+      }
+    }
+    console.log(flag);
+    return flag;
+  }
 
-  function flipCellsAround(coord) {
-    let {ncols, nrows} = this.props;
-    let board = this.state.board;
-    let [y, x] = coord.split("-").map(Number);
+  
+   /** handle changing a cell: update board & determine if winner */
 
+  function flipCellsAround(x,y,Board) {
+    // let {ncols, nrows} = this.props;
+    // let board = this.state.board;
+    
 
-    function flipCell(y, x) {
+    function flipCell(x,y) {
       // if this coord is actually on board, flip it
 
       if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
-        board[y][x] = !board[y][x];
+        Board[y][x]=!Board[y][x];
       }
     }
+    flipCell(y,x);
+    flipCell(y,x+1);
+    flipCell(y,x-1);
+    flipCell(y+1,x);
+    flipCell(y-1,x);
+    
 
     // TODO: flip this cell and the cells around it
 
     // win when every cell is turned off
     // TODO: determine is the game has been won
+    
+    return Board;
+  }   
 
-    setState(board);
-    setState(hasWon);
+  // if the game is won, just show a winning msg & render nothing else
+  
+  function final(cord){
+    settries(()=>{
+      return total_tries-1;
+    });
+    setBoard(() => {
+      const [y, x] = cord.split("-").map(Number);     
+
+      // Make a (deep) copy of the oldBoard         
+      const boardCopy = board.map(row => [...row]);      
+      flipCellsAround(y, x, boardCopy);
+       console.log(total_tries) 
+      //return the copy
+      return boardCopy
+    });
   }
-
-
-  /** Render game board or winning message. */
-
-  return (
-
-    // if the game is won, just show a winning msg along with the leaderboard
-
-    // TODO
-
-    // make table board
-    // render leaderboard when won or lost
-
-    // TODO
+  if (hasWon()) {
+    console.log(total_tries)
+    return (
+      <div class="neonwon">YOU<div class="flux">WON !</div></div>
   );
+    }
+  if(!total_tries)
+  return (
+    <div class="neonwon">YOU<div class="flux">Lose !</div></div>
+  );
+  // make table board
+  return (
+    <div>
+      {/* <h1>{board}</h1> */}
+    <div class="neon">Lights<div class="flux"> Out</div></div>
+    <table className="Board">
+      {board.map((nrow, y) => 
+        <tr key={y}>
+          {nrow.map((ncell, x) => 
+            <Cell
+              isLit={ncell}
+              flipCellsAroundMe={() => final(`${y}-${x}`)}
+            />
+          )}
+        </tr>
+      )}
+    </table>
+    <div class="flux2">Tries Left: {total_tries}</div>
+    </div>  
+  )
+  
 }
-
 
 export default Board;
