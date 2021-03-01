@@ -28,21 +28,22 @@ import Leaderboard from "./Leaderboard";
  *  This doesn't handle any clicks --- clicks are on individual cells
  *
  **/
+const triesLeft = 20;
+
 
 function Board(props) {
 
     const [hasWon, setHasWon] = useState(false);
     const [board, setBoard] = useState(createBoard);
-    const [left, setLeft] = useState(1);
+    const [left, setLeft] = useState(triesLeft);
     const [over, setOver] = useState(false);
 
     /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
 
     function createBoard() {
-        let board = Array(props.nrows).fill().map(
+        return Array(props.nrows).fill().map(
             () => Array(props.ncols).fill().map(u => Math.random() > 0.8)
-        )
-        return board;
+        );
     }
 
     /** handle changing a cell: update board & determine if winner */
@@ -74,13 +75,20 @@ function Board(props) {
         board.forEach(u => u.forEach(v => v ? hasWon = false : ''))
 
         setBoard(tempBoard);
-        // setHasWon(hasWon);
+        setHasWon(hasWon);
 
         // decrement chance left
         setLeft(l => ((l - 1 === 0 ? setOver(true) : ''), l - 1))
 
         if (hasWon)
             setOver(true);
+    }
+
+    const reset = () => {
+        setBoard(createBoard);
+        setHasWon(false);
+        setLeft(triesLeft);
+        setOver(false);
     }
 
 
@@ -103,6 +111,10 @@ function Board(props) {
             <div className={'left'}>
                 Tries left: {left}
             </div>
+
+            {over ? <div className="reset">
+                <button onClick={reset}>Play again</button>
+            </div> : null}
         </div>
     );
 }

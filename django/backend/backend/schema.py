@@ -22,4 +22,36 @@ class Query(graphene.ObjectType):
         return Entry.objects.all()
 
 
-schema = graphene.Schema(query=Query)
+class CreateOrUpdateEntry(graphene.Mutation):
+    name = graphene.String()
+    wins = graphene.Int()
+    loses = graphene.Int()
+
+    class Arguments:
+        name = graphene.String()
+        win = graphene.Int()
+        lose = graphene.Int()
+
+    def mutate(self, info, name, win, lose):
+        entry, created = Entry.objects.get_or_create(
+            name=name,
+            defaults={
+                'wins': 0, 'loses': 0
+            }
+        )
+        entry.wins += win
+        entry.loses += lose
+        entry.save()
+
+        return CreateOrUpdateEntry(
+            name=entry.name,
+            wins=entry.wins,
+            loses=entry.loses,
+        )
+
+
+class Mutation(graphene.ObjectType):
+    create_or_update_entry = CreateOrUpdateEntry.Field()
+
+
+schema = graphene.Schema(query=Query, mutation=Mutation)

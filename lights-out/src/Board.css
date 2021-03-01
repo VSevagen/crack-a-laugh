@@ -43,3 +43,48 @@
 .message {
     color: #ff9933;
 }
+
+.form {
+    display: flex;
+    margin: 24px 0;
+}
+
+.form input {
+    flex: 1;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    padding: 8px 14px;
+    outline: none;
+    border: 1px solid #ff9933;
+}
+
+.form button {
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    padding: 8px 12px;
+    outline: none;
+    border: 1px solid #ff9933;
+    color: #111111;
+    background: #ff9933;
+    cursor: pointer;
+}
+
+.reset {
+    margin-top: 48px;
+}
+
+.reset button {
+    border-radius: 100px;
+    border: 2px solid #ff9933;
+    background: transparent;
+    color: #ff9933;
+    outline: none;
+    padding: 8px 14px;
+    transition: all 300ms;
+    cursor: pointer;
+}
+
+.reset button:hover {
+    background: #ff9933;
+    color: #111;
+}
