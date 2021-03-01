@@ -1,0 +1,26 @@
+[
+    {
+      "model": "lightsOut.score",
+      "fields": {
+        "name": "sevagen",
+        "wins": 0,
+        "loses": 7
+      }
+    },
+    {
+        "model": "lightsOut.score",
+        "fields": {
+          "name": "akhil",
+          "wins": 1,
+          "loses": 25
+        }
+      },
+      {
+        "model": "lightsOut.score",
+        "fields": {
+          "name": "yash",
+          "wins": 0,
+          "loses": 0
+        }
+      }
+  ]

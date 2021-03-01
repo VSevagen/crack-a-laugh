@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import "./Cell.css"
 
 
@@ -19,7 +19,8 @@ function Cell(props) {
 
   const handleClick = (evt) => {
     // call up to the board to flip cells around this cell
-    props.flipCellsAroundMe();
+    console.log(props.coords);
+    props.flipCellsAroundMe(props.coords);
   };
 
   let classes = "Cell" + (props.isLit ? " Cell-lit" : "");

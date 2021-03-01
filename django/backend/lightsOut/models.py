@@ -6,3 +6,12 @@ from django.db import models
 #      - Name
 #      - Wins
 #      - Loses
+class Score(models.Model):
+    name = models.CharField(max_length=20, primary_key=True)
+    wins = models.PositiveIntegerField()
+    loses = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name
+
+    
