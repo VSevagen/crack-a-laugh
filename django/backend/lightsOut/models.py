@@ -7,7 +7,7 @@ from django.db import models
 #      - Wins
 #      - Loses
 class Score(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=20, primary_key=True)
     wins = models.PositiveIntegerField()
     loses = models.PositiveIntegerField()
 

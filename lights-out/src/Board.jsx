@@ -130,7 +130,7 @@ function Board(props) {
     <React.Fragment>
        
        <h1>You Won</h1>
-        <div><Leaderboard /></div>
+        <div><Leaderboard hasWon={hasWon}/></div>
         <h2>Tries Left : {triesLeft}</h2>
       </React.Fragment>
     );
@@ -139,7 +139,7 @@ function Board(props) {
     return (
       <React.Fragment>
         <div><h1>You Lost</h1></div>
-        <Leaderboard />
+        <Leaderboard hasWon={hasWon}/>
         <h2>Tries Left : {triesLeft}</h2>
       </React.Fragment>
     );

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import Form from './Form';
 import "./Leaderboard.css";
 
-function Leaderboard(){
+function Leaderboard(props){
 
-    const [data, setData] = useState([]); 
+    const [data, setData] = useState([]);
 
-    useEffect(() => {    
+    function fetchData(){
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -16,6 +17,9 @@ function Leaderboard(){
          fetch('http://127.0.0.1:8000/graphql/', requestOptions)
             .then(response => response.json())
             .then(data => setData(data['data']['scores']));
+    };
+    useEffect(() => {    
+      fetchData();  
     
     }, []);
     
@@ -28,13 +32,16 @@ function Leaderboard(){
         cell_row.push(<td>{data[row]['loses']}</td>);
         table[row] = <tr>{cell_row}</tr>;
     }
+
+    let users = [];
+    data.map((value)=>users.push(value["name"]));
     return(
         
         // return a leaderboard using the html table tag
         // data should NOT be hardcoded, should be fetch using graphql from localhost:8000/graphql/
         // The styling is not a priority. You can refer to SecondStage.png but not necessary to be similar
-        <React.Fragment>
         
+        <React.Fragment>
             
             <h3>Your score</h3>
             <table class="table_score">
@@ -45,6 +52,7 @@ function Leaderboard(){
                 </tr>
                 {table}
             </table>
+            <Form users={users} update={fetchData} hasWon={props.hasWon}/>
         </React.Fragment>
         
 

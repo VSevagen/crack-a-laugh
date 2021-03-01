@@ -1,7 +1,6 @@
 [
     {
       "model": "lightsOut.score",
-      "pk": 1,
       "fields": {
         "name": "sevagen",
         "wins": 0,
@@ -10,7 +9,6 @@
     },
     {
         "model": "lightsOut.score",
-        "pk": 2,
         "fields": {
           "name": "akhil",
           "wins": 1,
@@ -19,7 +17,6 @@
       },
       {
         "model": "lightsOut.score",
-        "pk": 3,
         "fields": {
           "name": "yash",
           "wins": 0,
