@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Cell from "./Cell";
 import "./Board.css";
-
+import Leaderboard from "./Leaderboard";
 /** Game board of Lights out.
  *
  * Properties:
@@ -32,7 +32,7 @@ function Board() {
   // TODO: set initial state -- DONE
 
   let nrows = 4, ncols = 9, chanceLightStartsOn = 0.5;
-  const [total_tries,settries]=useState(20);
+  const [total_tries,settries]=useState(0);
   const [board, setBoard] = useState(createBoard()); 
 
   // create a board nrows high/ncols wide, each cell randomly lit or unlit  --Done 
@@ -118,14 +118,22 @@ function Board() {
     });
   }
   if (hasWon()) {
-    console.log(total_tries)
+    // console.log(total_tries)
     return (
-      <div class="neonwon">YOU<div class="flux">WON !</div></div>
+      <div>
+      <div class="neonwon">YOU<div class="flux2">WON !</div></div>
+      <Leaderboard/>
+    <div class="flux3">Tries Left: {total_tries}</div>
+    </div>
   );
     }
   if(!total_tries)
   return (
-    <div class="neonwon">YOU<div class="flux">Lose !</div></div>
+    <div>
+    <div class="neonwon">YOU<div class="flux2">Lost !</div></div>
+    <Leaderboard/>
+    <div class="flux3">Tries Left: {total_tries}</div>
+    </div>
   );
   // make table board
   return (

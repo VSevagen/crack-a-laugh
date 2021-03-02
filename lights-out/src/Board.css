@@ -29,8 +29,8 @@
 }
 .neonwon{
   position: absolute;
-  top: 40%;
-  right: 40%;
+  top: 5%;
+  right:35%;
   font-family: neon;
   color: #ff8800;
   font-size: 5vw;
@@ -47,9 +47,18 @@
   text-shadow: 0 0 3vw #2356FF;
 }
 .flux2 {
+  display: inline;
+  font-family: neon;
+  color: #426DFB;
+  font-size: 5vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #2356FF;
+}
+.flux3 {
   position: absolute;
-  top: 70%;
-  right: 40%;
+  top: 80%;
+  right:39%;
+  display: inline;
   font-family: neon;
   color: #426DFB;
   font-size: 3vw;

@@ -1,1 +1,35 @@
 /* Add your styles here or if you're planning for styled components, then DELETE this file*/
+.container{
+    position: absolute;
+    top: 40%;
+    right: 35%;
+    font-family: neon;
+    color: #ffffff;
+    font-size: 3vw;
+    line-height: 4vw;
+  }
+
+  /* .container {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  } */
+  
+  .container td, .container th {
+    border: 3px solid rgb(220, 235, 19);
+    padding: 6px;
+  }
+  .container h1{
+    position: absolute;
+    top: -60%;
+    right: 35%;
+    font-size:3vw;
+  }
+  
+  .container th {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
