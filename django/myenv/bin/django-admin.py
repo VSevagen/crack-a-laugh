@@ -1,4 +1,4 @@
-#!/home/sevagen/Documents/react-bootcamp-materials/19-dad-jokes-project/crack-a-laugh/django/myenv/bin/python3
+#!/home/pranav/Desktop/make-a-laugh Challenge/crack-a-laugh/django/myenv/bin/python3
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

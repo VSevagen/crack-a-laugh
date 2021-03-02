@@ -1,9 +1,14 @@
 .Cell {
   height: 100px;
   width: 100px;
-  background-color: darkgray;
+  background-color: rgb(38, 50, 56);
+  border-radius: 5px;
 }
 
 .Cell-lit {
-  background-color: white;
+  background-color: rgb(93, 225, 255);
+}
+
+.Cell-lit:hover {
+  background-color: rgb(93, 182, 202);
 }

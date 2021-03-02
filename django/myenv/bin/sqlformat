@@ -1,4 +1,6 @@
-#!/home/sevagen/Documents/react-bootcamp-materials/19-dad-jokes-project/crack-a-laugh/django/myenv/bin/python3
+#!/bin/sh
+'''exec' "/home/pranav/Desktop/make-a-laugh Challenge/crack-a-laugh/django/myenv/bin/python3" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys

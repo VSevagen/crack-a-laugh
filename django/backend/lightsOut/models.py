@@ -6,3 +6,4 @@ from django.db import models
 #      - Name
 #      - Wins
 #      - Loses
+    

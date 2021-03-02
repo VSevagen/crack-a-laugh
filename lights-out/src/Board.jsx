@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Cell from "./Cell";
 import './Board.css';
+import Form from "./Form";
 
 /** Game board of Lights out.
  *
@@ -28,58 +29,108 @@ import './Board.css';
  *
  **/
 
-function Board(props) {
+function Board() {
 
-  // TODO: set initial state
   
-
+  let [board, setBoard] = useState(createBoard);
+  let [hasWon, sethasWon] = useState(false);
+  let [tries,setTries] = useState(20);
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
 
   function createBoard() {
     let board = [];
     // TODO: create array-of-arrays of true/false values
-    return board
+    for (let y = 0; y < 4; y++) {
+      let row = [];
+      for (let x = 0; x < 9; x++) {
+        row.push(Math.random() < 0.25);
+      }
+      board.push(row);
+    }
+    return board;
   }
-
   /** handle changing a cell: update board & determine if winner */
 
   function flipCellsAround(coord) {
-    let {ncols, nrows} = this.props;
-    let board = this.state.board;
+    let newboard = Object.assign([],board);   //Sorce is from the board and then targetting it to the empty list.
     let [y, x] = coord.split("-").map(Number);
 
 
     function flipCell(y, x) {
       // if this coord is actually on board, flip it
-
-      if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
-        board[y][x] = !board[y][x];
+      if (x >= 0 && x < 9 && y >= 0 && y < 4) {
+        newboard[y][x] = !newboard[y][x];
       }
     }
 
     // TODO: flip this cell and the cells around it
-
+    flipCell(y, x);
+    flipCell(y, x - 1);
+    flipCell(y, x + 1);
+    flipCell(y + 1, x);
+    flipCell(y - 1, x);
     // win when every cell is turned off
     // TODO: determine is the game has been won
+    let hasWon = board.every((row) =>
+      row.every((cell) => {
+        return cell === false;
+      })
+    );
 
-    setState(board);
-    setState(hasWon);
+    let left = tries
+    left--
+    setTries(left);
+    setBoard(newboard);
+    sethasWon(hasWon);
   }
-
 
   /** Render game board or winning message. */
 
+
+  const tableBoard = [];
+  for (let y = 0; y < 4; y++) {
+    let row = [];
+    for (let x = 0; x < 9; x++) {
+      let coord = `${y}-${x}`;
+      row.push(
+        <Cell
+          key={coord}
+          coord={coord}
+          isLit={board[y][x]}
+          flipCellsAroundMe={flipCellsAround}
+        />
+      );
+    }
+    tableBoard.push(<tr key={`row${y}`}>{row}</tr>);
+  }
+  
+
   return (
-
-    // if the game is won, just show a winning msg along with the leaderboard
-
-    // TODO
-
-    // make table board
-    // render leaderboard when won or lost
-
-    // TODO
-  );
+    hasWon
+      ? (
+        <div>
+          <h1 className='title'>Lights Out</h1>
+          <h2 className='winningMessage'>Winner!</h2>
+          <Form/>
+        </div>
+      )
+      : tries>0
+      ?(
+        <div>
+          <h1 className='title'>Lights Out</h1>
+          <table className="Board">
+            <tbody>{tableBoard}</tbody>
+          </table>
+          <div className='left'>
+            Tries left: {tries}
+          </div>
+        </div>
+      )
+      :(
+        <div>
+          <h className='over'>Game Over</h>
+        </div>
+      ));
 }
 
 
