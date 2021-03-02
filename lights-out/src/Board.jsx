@@ -33,10 +33,8 @@ const triesLeft = 20;
 
 function Board(props) {
 
-    const [hasWon, setHasWon] = useState(false);
     const [board, setBoard] = useState(createBoard);
     const [left, setLeft] = useState(triesLeft);
-    const [over, setOver] = useState(false);
 
     /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
 
@@ -59,12 +57,12 @@ function Board(props) {
 
             if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
                 tempBoard[y][x] = !tempBoard[y][x];
-                (tempBoard[y-1] || [])[x] = !(tempBoard[y-1] || [])[x] // top
-                if (isFinite(tempBoard[y][x+1]))
-                    tempBoard[y][x+1] = !tempBoard[y][x+1]; // right
-                (tempBoard[y+1] || [])[x] = !(tempBoard[y+1] || [])[x] // bottom
-                if (isFinite(tempBoard[y][x-1]))
-                    tempBoard[y][x-1] = !tempBoard[y][x-1] // left
+                (tempBoard[y - 1] || [])[x] = !(tempBoard[y - 1] || [])[x] // top
+                if (isFinite(tempBoard[y][x + 1]))
+                    tempBoard[y][x + 1] = !tempBoard[y][x + 1]; // right
+                (tempBoard[y + 1] || [])[x] = !(tempBoard[y + 1] || [])[x] // bottom
+                if (isFinite(tempBoard[y][x - 1]))
+                    tempBoard[y][x - 1] = !tempBoard[y][x - 1] // left
             }
         }
 
@@ -73,22 +71,16 @@ function Board(props) {
         // win when every cell is turned off
         let hasWon = true;
         board.forEach(u => u.forEach(v => v ? hasWon = false : ''))
+        if (hasWon)
+            props.setWon(hasWon);
 
         setBoard(tempBoard);
-        setHasWon(hasWon);
 
         // decrement chance left
-        setLeft(l => ((l - 1 === 0 ? setOver(true) : ''), l - 1))
+        setLeft(l => ((l - 1 === 0 ? props.setOver(true) : ''), l - 1))
 
         if (hasWon)
-            setOver(true);
-    }
-
-    const reset = () => {
-        setBoard(createBoard);
-        setHasWon(false);
-        setLeft(triesLeft);
-        setOver(false);
+            props.setOver(true);
     }
 
 
@@ -96,25 +88,18 @@ function Board(props) {
     return (
         // if the game is won, just show a winning msg along with the leaderboard
         <div>
-            {!over ?
-                <div className={'Board'} style={{'gridTemplateColumns': `repeat(${props.ncols}, 1fr)`}}>
+            <div className={'Board'} style={{'gridTemplateColumns': `repeat(${props.ncols}, 1fr)`}}>
                 {board.map((row, y) =>
                     row.map((col, x) => (
                         <Cell key={y * board.length + x} flipCellsAroundMe={() => flipCellsAround({y, x})}
                               isLit={board[y][x]}/>
                     ))
                 )}
-            </div> :
-            <Leaderboard hasWon={hasWon} />
-            }
+            </div>
 
             <div className={'left'}>
                 Tries left: {left}
             </div>
-
-            {over ? <div className="reset">
-                <button onClick={reset}>Play again</button>
-            </div> : null}
         </div>
     );
 }
