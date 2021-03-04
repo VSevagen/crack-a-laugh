@@ -21,7 +21,7 @@
   }
   .container h1{
     position: absolute;
-    top: -60%;
+    top: -30%;
     right: 35%;
     font-size:3vw;
   }
@@ -32,4 +32,20 @@
     text-align: left;
     background-color: #4CAF50;
     color: white;
+  }
+
+  .container form {
+    position: relative;
+    top: -60%;
+    right: 35%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: left;
+    color: white;
+  }
+
+  .flux3{
+    position: relative;
+    top: 100%;
+    right:0%;
   }

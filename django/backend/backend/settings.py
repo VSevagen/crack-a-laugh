@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'lightsOut.apps.LightsoutConfig',
     'graphene_django',
 ]
-
+CORS_ORIGIN_ALLOW_ALL = DEBUG
 # Look into CORS Whitelisting and dont forget to add your apps to INSTALLLED_APPS
 # Check out graphene as well
 GRAPHENE = {
@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',

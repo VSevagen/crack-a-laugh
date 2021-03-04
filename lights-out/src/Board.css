@@ -65,6 +65,17 @@
   line-height: 9vw;
   text-shadow: 0 0 3vw #2356FF;
 }
+.flux4 {
+  position: absolute;
+  top: 80%;
+  right:39%;
+  display: inline;
+  font-family: neon;
+  color: #426DFB;
+  font-size: 3vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #2356FF;
+}
 .neon {
   animation: neon 1s ease infinite;
   -moz-animation: neon 1s ease infinite;
