@@ -1,1 +1,30 @@
 /* Use this to style your Form.jsx or use styled components, your choice */
+.form {
+    position: relative;
+    margin: 24px 0;
+}
+
+.form input {
+    position: relative;
+    right: -60%;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    background: #000;
+    color: #fff;
+    border: 1px  #ffffff;
+}
+
+.form button {
+    position: relative;
+    right: -60%;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;  
+    border: 1px solid #050505;
+    color: #f8f5f5;
+    background: #000000;
+}
+
+h1{
+    position: relative;
+    top: 80%;
+}
