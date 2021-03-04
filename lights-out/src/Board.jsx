@@ -4,10 +4,9 @@ import Cell from "./Cell";
 import "./Board.css";
 
 function Board(props) {
-  
 
   const [board, setBoard] = useState(createBoard(props));
-  const [triesLeft, setTriesLeft] = useState(2);
+  const [triesLeft, setTriesLeft] = useState(20);
   const [hasWon, setHasWon] = useState(false);
   
   function createBoard() {
@@ -43,8 +42,6 @@ function Board(props) {
     setHasWon(hasWon);
   }
 
-
-  
   
   let table = new Array(board.length);
 
