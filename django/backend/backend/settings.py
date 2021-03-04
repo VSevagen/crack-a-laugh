@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +36,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
+    'lightsOut',
+    'graphene_django'
 ]
+
+CORS_ORIGIN_ALLOW_ALL = DEBUG
+
+GRAPHENE = {
+     'SCHEMA': 'lightsOut.schema.schema'
+ }
 
 # Look into CORS Whitelisting and dont forget to add your apps to INSTALLLED_APPS
 # Check out graphene as well
