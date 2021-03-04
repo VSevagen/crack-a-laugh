@@ -1,0 +1,26 @@
+[
+    {
+      "model": "lightsOut.leaderboard",
+      "fields": {
+        "name": "Anoushka",
+        "wins": 3,
+        "loses": 4
+      }
+    },
+    {
+      "model": "lightsOut.leaderboard",
+      "fields": {
+        "name": "Ramesh",
+        "wins": 5,
+        "loses": 3
+      }
+    },
+    {
+      "model": "lightsOut.leaderboard",
+      "fields": {
+        "name": "Arjun",
+        "wins": 2,
+        "loses": 7
+      }
+    }
+  ]
