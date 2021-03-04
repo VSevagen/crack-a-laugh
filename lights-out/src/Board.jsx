@@ -5,7 +5,7 @@ import "./Board.css";
 function Board(props) {
 
   const [board, setBoard] = useState(createBoard(props));
-  const [triesLeft, setTriesLeft] = useState(20);
+  const [triesLeft, setTriesLeft] = useState(50);
   const [hasWon, setHasWon] = useState(false);
   
   function createBoard() {

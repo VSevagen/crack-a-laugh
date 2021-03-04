@@ -37,10 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'lightsOut',
+    'graphene_django',
 ]
 
 # Look into CORS Whitelisting and dont forget to add your apps to INSTALLLED_APPS
 # Check out graphene as well
+
+GRAPHENE = {
+ 'SCHEMA': 'backend.schema.schema'
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

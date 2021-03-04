@@ -1,4 +1,4 @@
-#!/home/sevagen/Documents/react-bootcamp-materials/19-dad-jokes-project/crack-a-laugh/django/myenv/bin/python3
+#!/media/arungovindm/DATA1/amFOSS/crack-a-laugh/django/myenv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

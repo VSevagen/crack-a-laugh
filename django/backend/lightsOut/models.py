@@ -6,3 +6,8 @@ from django.db import models
 #      - Name
 #      - Wins
 #      - Loses
+
+class Leaderboard(models.Model):
+    Name=models.CharField(max_length=100)
+    Wins=models.IntegerField()
+    Loses=models.IntegerField()
