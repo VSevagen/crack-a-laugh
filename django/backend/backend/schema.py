@@ -15,6 +15,10 @@ class CreateUser(graphene.Mutation):
     name = graphene.String()
     loses = graphene.Int()
     wins = graphene.Int()
+    class Arguments:
+        name = graphene.String()
+        wins = graphene.Int()
+        loses = graphene.Int()
     def mutate(self, info, name, wins, loses):
         user, created = UserModel.objects.get_or_create(
             name=name,
