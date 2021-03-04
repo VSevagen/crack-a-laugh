@@ -1,1 +1,45 @@
 /* Use this to style your Form.jsx or use styled components, your choice */
+
+@font-face {
+  font-family: neon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+
+.formTitle {
+  font-family: neon;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.formTitle .neon-blue {
+  font-family: neon;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.inputField {
+  padding-left: 10px;
+  outline: 0;
+  width: 300px;
+  height: 40px;
+  border-radius: 50px;
+  color: white;
+  background-color: #333333;
+  outline: none;
+  border: none;
+}
+
+.submitButton {
+  color: white;
+  width: 300px;
+  height: 40px;
+  margin-top: 40px;
+  background-color: #333333;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+}
+
+.submitButton:focus {
+  border: none;
+}
