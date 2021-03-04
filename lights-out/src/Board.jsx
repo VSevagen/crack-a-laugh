@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Cell from "./Cell";
 import './Board.css';
 import { render } from "react-dom";
+import Leaderboard from "./Leaderboard"
 
 /** Game board of Lights out.
  *
@@ -143,7 +144,10 @@ function renderCells(){
     <div>
       {
         hasWon? 
-          <div>You won</div>:
+          <div>
+            You won 
+            <Leaderboard/>
+          </div>:
           triesLeft>0?
           <div>
             LightsOut
@@ -153,10 +157,13 @@ function renderCells(){
           Tries Left: {triesLeft}
             </div>:
             <div>
+            <h1>
               Game Over
-              </div>
-
-          
+              {hasWon?<div>You won</div>:<div>You lost</div>}
+              
+              </h1>
+              <Leaderboard hasWon={hasWon}/>
+          </div>
       }
     </div>
     
