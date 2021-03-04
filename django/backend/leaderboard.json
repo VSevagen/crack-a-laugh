@@ -1,0 +1,47 @@
+[
+  {
+    "model": "lightsOut.Leaderboard",
+    "pk": 1,
+    "fields": {
+      "Name": "Sevagen",
+      "Wins":"0",
+      "Loses":"7"
+    }
+  },
+  {
+    "model": "lightsOut.Leaderboard",
+    "pk": 2,
+    "fields": {
+      "Name": "Akhil",
+      "Wins":"1",
+      "Loses":"25"
+    }
+  },
+  {
+    "model": "lightsOut.Leaderboard",
+    "pk": 3,
+    "fields": {
+      "Name": "Abhijit",
+      "Wins":"2",
+      "Loses":"45"
+    }
+  },
+  {
+    "model": "lightsOut.Leaderboard",
+    "pk": 4,
+    "fields": {
+      "Name": "Harshith",
+      "Wins":"9",
+      "Loses":"0"
+    }
+  },
+  {
+    "model": "lightsOut.Leaderboard",
+    "pk": 5,
+    "fields": {
+      "Name": "Yash",
+      "Wins":"0",
+      "Loses":"0"
+    }
+  }
+]

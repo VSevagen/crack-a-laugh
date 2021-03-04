@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"; 
 import Board from "./Board";
 import "./App.css";
 
@@ -6,12 +6,11 @@ import "./App.css";
 
 // Also you might wanna encapsulate <App /> with ApolloProvider to allow for any query anywhere in this application
 // uri should be localhost in this case
-
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Board />
+        <Board ncols={9} nrows={4} chanceLightStartsOn={0.25}/>
       </div>
     );
   }
