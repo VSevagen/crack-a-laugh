@@ -1,1 +1,23 @@
 /* Add your styles here or if you're planning for styled components, then DELETE this file*/
+.leaderBoard{
+    align-items: center;
+    margin-left: auto;
+    margin-right:auto ;
+    border: 3px solid rgb(23, 228, 84);
+    width: 500px;
+    height:auto;
+    border-radius: 30px;
+}
+
+.eachPerson{
+    font-size: 30px;
+}
+
+.tablehead{
+    font-size: 30px;
+    color: rgb(19, 219, 203);
+}
+
+.heading{
+    font-size: 40px;
+}

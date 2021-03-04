@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Cell from "./Cell";
 import './Board.css';
-import Form from "./Form";
+import Leaderboard from "./Leaderboard";
 
 /** Game board of Lights out.
  *
@@ -111,7 +111,7 @@ function Board() {
         <div>
           <h1 className='title'>Lights Out</h1>
           <h2 className='winningMessage'>Winner!</h2>
-          <Form/>
+          <Leaderboard/>
         </div>
       )
       : tries>0
@@ -129,6 +129,7 @@ function Board() {
       :(
         <div>
           <h className='over'>Game Over</h>
+          <Leaderboard/>
         </div>
       ));
 }

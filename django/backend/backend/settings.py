@@ -37,10 +37,24 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'lightsOut',
+    'graphene_django',
+    'corsheaders',  #This is to allow the request from tht other websites as we request data from the react running url.
 ]
 
 # Look into CORS Whitelisting and dont forget to add your apps to INSTALLLED_APPS
 # Check out graphene as well
+
+GRAPHENE = {
+    "SCHEMA": "backend.schema.schema"
+}
+
+
+#Allowed websites
+CORS_ALLOWED_ORIGINS = [       
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 
