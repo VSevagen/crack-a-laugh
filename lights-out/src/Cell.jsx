@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import "./Cell.css"
 
 
@@ -17,7 +17,7 @@ import "./Cell.css"
 
 function Cell(props) {
 
-  const handleClick = (evt) => {
+  const handleClick = (event) => {
     // call up to the board to flip cells around this cell
     props.flipCellsAroundMe();
   };

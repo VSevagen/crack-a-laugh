@@ -1,1 +1,35 @@
 /* Add your styles here or if you're planning for styled components, then DELETE this file*/
+@font-face {
+  font-family: neon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+
+.leaderTitle {
+  font-family: neon;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.leaderTitle .neon-orange {
+  font-family: neon;
+  color: #ffffff;
+  font-size: 35px;
+}
+
+.leaderboardtable {
+  margin-top: 50px;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: neon;
+  align-items: center;
+  justify-content: center;
+}
+
+.leaderboardtable .leaderboardDesign{
+    font-size: 20px;
+    font-weight: 900;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid yellow;
+  }
