@@ -1,3 +1,39 @@
 .Board {
   margin: 0 auto;
 }
+.title {
+  font-family: neon;
+  font-size: 72px;
+  background: linear-gradient(45deg, #ffd800, #ff5520, #750cf2, #0cbcf2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.Board {
+  margin: 0 auto;
+  border: 1px solid black;
+  background-color: rgb(33, 33, 33);
+  border-radius: 10px;
+  box-shadow: 0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff;
+  background: linear-gradient(45deg, #ffd800, #ff5520, #750cf2, #0cbcf2);
+}
+
+.winningMessage{
+  font-size: 200px;
+  background: linear-gradient(90deg,rgb(0, 100, 231), rgb(24, 170, 102),rgb(230, 12, 238));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.over{
+  font-size: 80px;
+  background: linear-gradient(90deg, rgb(0, 100, 231), rgb(24, 170, 102), rgb(230, 12, 238));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.left{
+  margin: 100px;
+  font-size: 60px;
+  background: linear-gradient(45deg,rgb(0, 231, 12), rgb(0, 177, 231), rgb(230, 41, 8), rgb(207, 14, 14));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

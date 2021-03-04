@@ -4,10 +4,11 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.3.7",
+    "axios": "^0.21.1",
     "graphql": "^15.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^2.1.8"
+    "react-scripts": "^4.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

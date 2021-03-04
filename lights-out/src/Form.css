@@ -1,1 +1,28 @@
-/* Use this to style your Form.jsx or use styled components, your choice */
+.form{
+    margin: 100px;
+    align-items: center;
+}
+
+.inputField{
+    border-radius: 200px;
+    padding: 15px 0px;
+    background-color:black;
+    color: aqua;
+    font-size: 30px;
+}
+.labeltitle{
+    font-size: 30px;
+    display: flex;
+    margin-bottom: 25px;
+}
+.name{
+    font-size: 50px;
+    color: burlywood;
+}
+
+.submit{
+    padding: 10px 30px;
+    margin-top: 25px;
+    background-color: rgb(10, 180, 192);
+    border-radius: 30px;
+}
