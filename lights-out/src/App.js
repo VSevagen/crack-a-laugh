@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Board />
+        <Board nrows="5" ncols="5" chanceLightStartsOn="0.25" />
       </div>
     );
   }
