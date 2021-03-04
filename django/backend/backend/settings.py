@@ -25,12 +25,16 @@ SECRET_KEY = 'ni%739vx=q6q1$h@y353=ui15@g3pr7-hjfpv+2^qhv$xdv-@$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'graphene_django',
+    'corsheaders',
+    'lightsOut.apps.LightsoutConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+GRAPHENE = {
+    'SCHEMA': 'backend.schema.schema'
+}
+
 
 # Look into CORS Whitelisting and dont forget to add your apps to INSTALLLED_APPS
 # Check out graphene as well
@@ -47,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
