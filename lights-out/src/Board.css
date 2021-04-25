@@ -1,3 +1,90 @@
 .Board {
-  margin: 0 auto;
+    display: grid;
+    margin: 0 auto;
+    width: fit-content;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #111;
+    box-shadow: 0 0 40px 20px #ff9933, 0 0 10px 10px #50BFE6;
+}
+
+.left {
+    font-size: 1.3rem;
+    margin-top: 102px;
+    text-transform: uppercase;
+}
+
+.table {
+    border-spacing: 0;
+    width: 100%;
+    min-width: 40vw;
+    border: 2px solid #ff9933;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table thead {
+    color: #111;
+    background: #ff9933;
+}
+
+.table th, .table td {
+    padding: 8px 0;
+}
+
+.table tr th, .table tr:not(:last-child) td {
+    border-bottom: 2px solid #ff9933;
+}
+
+.table tr th:not(:last-child), .table tr td:not(:last-child) {
+    border-right: 2px solid #ff9933;
+}
+
+.message {
+    color: #ff9933;
+}
+
+.form {
+    display: flex;
+    margin: 24px 0;
+}
+
+.form input {
+    flex: 1;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    padding: 8px 14px;
+    outline: none;
+    border: 1px solid #ff9933;
+}
+
+.form button {
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    padding: 8px 12px;
+    outline: none;
+    border: 1px solid #ff9933;
+    color: #111111;
+    background: #ff9933;
+    cursor: pointer;
+}
+
+.reset {
+    margin-top: 48px;
+}
+
+.reset button {
+    border-radius: 100px;
+    border: 2px solid #ff9933;
+    background: transparent;
+    color: #ff9933;
+    outline: none;
+    padding: 8px 14px;
+    transition: all 300ms;
+    cursor: pointer;
+}
+
+.reset button:hover {
+    background: #ff9933;
+    color: #111;
 }

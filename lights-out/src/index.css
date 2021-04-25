@@ -11,9 +11,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #003;
+  background-color: #444;
   padding-top: 50px;
   color: white;
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+* {
+  box-sizing: border-box;
+}

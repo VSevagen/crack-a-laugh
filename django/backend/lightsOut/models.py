@@ -6,3 +6,9 @@ from django.db import models
 #      - Name
 #      - Wins
 #      - Loses
+
+
+class Entry(models.Model):
+    name = models.CharField(max_length=255)
+    wins = models.IntegerField()
+    loses = models.IntegerField()

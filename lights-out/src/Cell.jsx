@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import "./Cell.css"
 
 
@@ -24,7 +24,7 @@ function Cell(props) {
 
   let classes = "Cell" + (props.isLit ? " Cell-lit" : "");
 
-  return <td className={classes} onClick={handleClick} />;
+  return <div className={classes} onClick={handleClick} />;
   }
 
 
